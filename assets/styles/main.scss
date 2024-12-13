@@ -1,0 +1,30 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './utils' as *;
+
+body {
+  font-family: $font-family;
+  background: #ecf0f1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+$breakpoint-sm: 768px;
+
+@mixin responsive($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  @include responsive($breakpoint-sm) {
+    flex-direction: row;
+  }
+}

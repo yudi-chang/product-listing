@@ -1,0 +1,109 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product A",
+      "price": 19.99,
+      "tags": ["Electronics", "Sale", "Popular"],
+      "image": "https://via.placeholder.com/150?text=Product+A"
+    },
+    {
+      "id": 2,
+      "name": "Product B",
+      "price": 39.99,
+      "tags": ["Clothing", "New", "Trendy"],
+      "image": "https://via.placeholder.com/150?text=Product+B"
+    },
+    {
+      "id": 3,
+      "name": "Product C",
+      "price": 49.99,
+      "tags": ["Furniture", "Home", "Luxury"],
+      "image": "https://via.placeholder.com/150?text=Product+C"
+    },
+    {
+      "id": 4,
+      "name": "Product D",
+      "price": 29.99,
+      "tags": ["Kitchen", "Essential", "New"],
+      "image": "https://via.placeholder.com/150?text=Product+D"
+    },
+    {
+      "id": 5,
+      "name": "Product E",
+      "price": 9.99,
+      "tags": ["Accessories", "Bestseller", "Trendy"],
+      "image": "https://via.placeholder.com/150?text=Product+E"
+    },
+    {
+      "id": 6,
+      "name": "Product F",
+      "price": 59.99,
+      "tags": ["Sports", "Active", "Outdoor"],
+      "image": "https://via.placeholder.com/150?text=Product+F"
+    },
+    {
+      "id": 7,
+      "name": "Product G",
+      "price": 99.99,
+      "tags": ["Gaming", "New", "Popular"],
+      "image": "https://via.placeholder.com/150?text=Product+G"
+    },
+    {
+      "id": 8,
+      "name": "Product H",
+      "price": 149.99,
+      "tags": ["Outdoors", "Adventure", "Luxury"],
+      "image": "https://via.placeholder.com/150?text=Product+H"
+    },
+    {
+      "id": 9,
+      "name": "Product I",
+      "price": 199.99,
+      "tags": ["Beauty", "Skincare", "Bestseller"],
+      "image": "https://via.placeholder.com/150?text=Product+I"
+    },
+    {
+      "id": 10,
+      "name": "Product J",
+      "price": 119.99,
+      "tags": ["Electronics", "Tech", "New"],
+      "image": "https://via.placeholder.com/150?text=Product+J"
+    },
+    {
+      "id": 11,
+      "name": "Product K",
+      "price": 79.99,
+      "tags": ["Toys", "Kids", "Popular"],
+      "image": "https://via.placeholder.com/150?text=Product+K"
+    },
+    {
+      "id": 12,
+      "name": "Product L",
+      "price": 59.99,
+      "tags": ["Furniture", "Living Room", "Luxury"],
+      "image": "https://via.placeholder.com/150?text=Product+L"
+    },
+    {
+      "id": 13,
+      "name": "Product M",
+      "price": 39.99,
+      "tags": ["Sports", "Outdoor", "Active"],
+      "image": "https://via.placeholder.com/150?text=Product+M"
+    },
+    {
+      "id": 14,
+      "name": "Product N",
+      "price": 29.99,
+      "tags": ["Clothing", "Men", "New"],
+      "image": "https://via.placeholder.com/150?text=Product+N"
+    },
+    {
+      "id": 15,
+      "name": "Product O",
+      "price": 89.99,
+      "tags": ["Appliances", "Kitchen", "Sale"],
+      "image": "https://via.placeholder.com/150?text=Product+O"
+    }
+  ]
+}
