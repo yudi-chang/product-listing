@@ -69,7 +69,7 @@ const handleToggleMenu = (newIsActive) => {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/_variables.scss";
+@use '@/assets/styles/_variables.scss' as *;
 
 header {
   background-color: var(--primary-color);
