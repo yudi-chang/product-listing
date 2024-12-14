@@ -41,10 +41,12 @@
               </div>
             </div>
           </div>
-          <p class="price mb-12">{{ productStore.product.price }}$</p>
-          <button class="add-to-cart">
-            Add to Cart
-          </button>
+          <div class="product-bottom-section">
+            <p class="price mb-12">{{ productStore.product.price }}$</p>
+            <button class="add-to-cart">
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
     </Container>
@@ -83,6 +85,8 @@ const retrieveProductDetail = () => {
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/styles/_variables.scss";
+
 .loader {
   margin: 30vh auto 0 auto;
 }
@@ -167,5 +171,55 @@ const retrieveProductDetail = () => {
     height: 100%;
     object-fit: cover;
   }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .product-wrapper {
+
+    .product-images-wrapper {
+      flex: 50%;
+      width: 50%;
+    }
+
+    .product-info {
+      flex: 50%;
+      width: 50%;
+      padding-left: 35px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .product-wrapper {
+    display: block;
+
+    .product-images-wrapper {
+      width: 100%;
+    }
+
+    .product-info {
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    .product-bottom-section {
+      display: flex;
+      width: 100%;
+      align-items: center;
+
+      .price {
+        flex: 0 1 auto;
+        padding-right: 20px;
+        margin: 0;
+      }
+
+      .add-to-cart { 
+        flex: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
 }
 </style>

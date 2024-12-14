@@ -17,14 +17,13 @@
 
 @media (max-width: $breakpoint-lg) {
   .container {
-    width: 800px;
+    width: 100%;
     padding: 15px;
   }
 }
 
 @media (max-width: $breakpoint-md) {
   .container {
-    width: 100%;
     padding: 10px;
   }
 }
