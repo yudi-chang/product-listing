@@ -44,6 +44,8 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/styles/_variables.scss";
+
 .loader {
   margin: 30vh auto 0 auto;
 }
@@ -68,7 +70,7 @@ onMounted(() => {
   min-height: 300px;
   transition: transform 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, width 0.3s ease-in-out;
 
   &:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -91,6 +93,33 @@ onMounted(() => {
   p {
     font-size: 1em;
     color: #333;
+  }
+}
+
+// responsive
+@media (max-width: $breakpoint-lg) {
+  .products {
+    gap: 20px; 
+  }
+
+  .product-card {
+    width: calc(33.333% - 20px);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .products {
+    gap: 15px; 
+  }
+
+  .product-card {
+    width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .product-card {
+    width: calc(100% - 10px);
   }
 }
 </style>

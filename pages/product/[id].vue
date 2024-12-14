@@ -66,7 +66,6 @@ const productStore = useProductStore();
 
 // reactive data
 const selectedVariation = ref(null);
-const thumbsSwiper = ref(null);
 
 // others
 const modules = [Pagination];
@@ -80,10 +79,6 @@ onMounted(() => {
 const retrieveProductDetail = () => {
   const id = route.params.id;
   productStore.fetchProductDetail(id);
-};
-
-const setThumbsSwiper = (swiper) => {
-  thumbsSwiper.value = swiper;
 };
 </script>
 

@@ -15,6 +15,6 @@ export default defineNuxtConfig({
     }
   },
   vite: {
-    assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.svg'], // Include image types
+    assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.svg'],
   },
 });
