@@ -111,7 +111,7 @@
     "name": "Product A",
     "price": 19.99,
     "tags": ["Electronics", "Sale", "Popular"],
-    "Variation": [
+    "variations": [
       "Color - blue",
       "Color - black",
       "Color - green"
@@ -129,7 +129,7 @@
     "name": "Product B",
     "price": 39.99,
     "tags": ["Clothing", "New", "Trendy"],
-    "Variation": [
+    "variations": [
       "Size - S",
       "Size - M",
       "Size - L",

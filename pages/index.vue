@@ -92,19 +92,5 @@ onMounted(() => {
     font-size: 1em;
     color: #333;
   }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .tag {
-    padding: 5px 10px;
-    margin: 3px 0;
-    border-radius: 6px;
-    background: var(--primary-color);
-    color: var(--secondary-color);
-  }
 }
 </style>
