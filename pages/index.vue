@@ -1,23 +1,27 @@
 <template>
   <div>
     <Container>
-      <h1>Catalog</h1>
+      <h1 class="mb-28">Catalog</h1>
       <div class="products">
-        <div v-for="product in productStore.products" :key="product.id" class="product-card">
-          <NuxtLink :to="`/product/${product.id}`">
-            <div class="product-img">
-              <img :src="product.image" alt="product.name" />
-            </div>
-            <div class="product-info pv-12 ph-16">
-              <h2>{{ product.name }}</h2>
-              <div>{{ product.price }}</div>
-              <div>Tags:</div>
-              <div class="tags mt-8">
-                <span v-for="tag in product.tags" :key="tag" class="tag">{{ tag }}</span>
-              </div>
-            </div>
-          </NuxtLink>
-        </div>
+        <div v-if="productStore.isLoading" class="loader"></div>
+        <template v-else>
+          <div v-for="product in productStore.products" :key="product.id" class="product-card">
+            <NuxtLink :to="`/product/${product.id}`">
+              <article>
+                <div class="product-img">
+                  <img :src="product.image" :alt="`Image of ${product.name}`" loading="lazy" />
+                </div>
+                <div class="product-info pt-16 pb-4 ph-16">
+                  <h2 class="fw-normal">{{ product.name }}</h2>
+                  <div class="mv-12 fw-bold">{{ product.price }}$</div>
+                </div>
+                <div class="tags pt-4 pb-16 ph-16">
+                  <span v-for="tag in product.tags" :key="tag" class="tag">{{ tag }}</span>
+                </div>
+              </article>
+            </NuxtLink>
+          </div>
+        </template>
       </div>
     </Container>
   </div>
@@ -30,15 +34,17 @@ import Container from '~/components/Container.vue';
 
 const productStore = useProductStore();
 
-onMounted(async () => {
-  await productStore.fetchProducts();
-  console.log("@@@@@@@@@@@@@")
-  console.log(productStore)
+onMounted(() => {
+  // no need async await since only have this fetch operation (hence no need to wait fetch first before doing something else)
+  productStore.fetchProducts();
 });
-
 </script>
 
 <style scoped lang="scss">
+.loader {
+  margin: 30vh auto 0 auto;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap; 
@@ -91,9 +97,11 @@ onMounted(async () => {
   }
 
   .tag {
-    background-color: #ddd;
-    border-radius: 5px;
-    font-size: 0.9em;
+    padding: 5px 10px;
+    margin: 3px 0;
+    border-radius: 6px;
+    background: var(--primary-color);
+    color: var(--secondary-color);
   }
 }
 </style>

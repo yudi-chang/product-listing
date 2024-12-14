@@ -1,17 +1,26 @@
 import { defineStore } from 'pinia';
-import axios from 'axios';
 
 export const useProductStore = defineStore('product', {
   state: () => ({
     products: [],
+    isLoading: false,
+    isErrorFetching: false,
   }),
   actions: {
     async fetchProducts() {
       try {
-        const response = await axios.get('https://my-json-server.typicode.com/yudi-chang/products-be/db');
-        this.products = response.data.products;
+        this.isLoading = true;
+        this.isErrorFetching = false;
+        const response = await fetch('https://my-json-server.typicode.com/yudi-chang/products-be/db');
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const data = await response.json();
+        this.products = data.products;
       } catch (error) {
-        console.error('Try again', error);
+        this.isErrorFetching = true;
+      } finally {
+        this.isLoading = false;
       }
     },
   },
