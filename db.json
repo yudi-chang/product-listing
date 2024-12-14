@@ -105,5 +105,43 @@
       "tags": ["Appliances", "Kitchen", "Sale"],
       "image": "https://via.placeholder.com/150?text=Product+O"
     }
-  ]
+  ],
+  "product_detail_1": {
+    "id": 1,
+    "name": "Product A",
+    "price": 19.99,
+    "tags": ["Electronics", "Sale", "Popular"],
+    "Variation": [
+      "Color - blue",
+      "Color - black",
+      "Color - green"
+    ],
+    "images": [
+      "https://via.placeholder.com/150?text=Product+A",
+      "https://via.placeholder.com/150?text=Product+A-1",
+      "https://via.placeholder.com/150?text=Product+A-2",
+      "https://via.placeholder.com/150?text=Product+A-3",
+      "https://via.placeholder.com/150?text=Product+A-4"
+    ]
+  },
+  "product_detail_2": {
+    "id": 2,
+    "name": "Product B",
+    "price": 39.99,
+    "tags": ["Clothing", "New", "Trendy"],
+    "Variation": [
+      "Size - S",
+      "Size - M",
+      "Size - L",
+      "Size - XL",
+      "Size - XXL"
+    ],
+    "images": [
+      "https://via.placeholder.com/150?text=Product+B",
+      "https://via.placeholder.com/150?text=Product+B-1",
+      "https://via.placeholder.com/150?text=Product+B-2",
+      "https://via.placeholder.com/150?text=Product+B-3",
+      "https://via.placeholder.com/150?text=Product+B-4"
+    ]
+  }
 }

@@ -12,6 +12,7 @@ body {
   padding: 0;
   text-decoration: none;
   color: $primary-color;
+  box-sizing: border-box; 
 }
 
 $breakpoint-sm: 768px;
@@ -20,10 +21,6 @@ $breakpoint-sm: 768px;
   @media (max-width: $breakpoint) {
     @content;
   }
-}
-
-.bold {
-  font-weight: bold;
 }
 
 /*

@@ -1,9 +1,12 @@
 <template>
-  <div>
+  <div style="width: 100%;">
     <Container>
       <h1 class="mb-28">Catalog</h1>
       <div class="products">
         <div v-if="productStore.isLoading" class="loader"></div>
+        <template v-else-if="productStore.isErrorFetching">
+          <ErrorMessage @retry-fetch="productStore.fetchProducts()"/>
+        </template>
         <template v-else>
           <div v-for="product in productStore.products" :key="product.id" class="product-card">
             <NuxtLink :to="`/product/${product.id}`">
@@ -54,6 +57,7 @@ onMounted(() => {
 
 .product-card {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -77,7 +81,6 @@ onMounted(() => {
       width: 100%;
       height: auto;
       object-fit: cover;
-      border-radius: 8px;
     }
   }
 
