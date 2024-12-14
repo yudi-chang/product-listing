@@ -7,9 +7,33 @@
     <Container v-else-if="productStore.product">
       <div class="product-wrapper">
         <div class="product-images-wrapper">
-          <div class="current-image">
-            <img :src="productStore.product.images[0]" :alt="productStore.product.name" />
-          </div>
+          <swiper
+            :style="{
+              '--swiper-navigation-color': '#fff',
+              '--swiper-pagination-color': '#fff',
+            }"
+            :spaceBetween="10"
+            :thumbs="{ swiper: thumbsSwiper }"
+            :modules="modules"
+            class="mySwiper2"
+          >
+            <swiper-slide v-for="(image, index) in productStore.product.images" :key="index">
+              <img :src="image" alt="Product Image" />
+            </swiper-slide>
+          </swiper>
+          <swiper
+            @swiper="setThumbsSwiper"
+            :spaceBetween="10"
+            :slidesPerView="4"
+            :freeMode="true"
+            :watchSlidesProgress="true"
+            :modules="modules"
+            class="mySwiper"
+          >
+            <swiper-slide v-for="(image, index) in productStore.product.images" :key="index">
+              <img :src="image" alt="Product Image" />
+            </swiper-slide>
+          </swiper>
         </div>
         <div class="product-info">
           <div class="tags mb-20">
@@ -52,8 +76,13 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useProductStore } from '~/stores/product';
-import Container from '~/components/Container.vue';
 import { useRoute } from 'vue-router';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
 
 // store
 const route = useRoute();
@@ -61,6 +90,10 @@ const productStore = useProductStore();
 
 // reactive data
 const selectedVariation = ref(null);
+const thumbsSwiper = ref(null);
+
+// others
+const modules = [FreeMode, Navigation, Thumbs];
 
 // cycle
 onMounted(() => {
@@ -68,10 +101,14 @@ onMounted(() => {
 });
 
 // methods
-function retrieveProductDetail() {
+const retrieveProductDetail = () => {
   const id = route.params.id;
   productStore.fetchProductDetail(id);
-}
+};
+
+const setThumbsSwiper = (swiper) => {
+  thumbsSwiper.value = swiper;
+};
 </script>
 
 <style scoped lang="scss">
@@ -85,19 +122,12 @@ function retrieveProductDetail() {
 
   .product-images-wrapper {
     flex: 40%;
-
-    .current-image {
-      width: 100%;
-      border-radius: 10px;
-
-      img {
-        width: 100%;
-      }
-    }
+    width: 40%;
   }
 
   .product-info {
     flex: 60%;
+    width: 60%;
     padding-left: 50px;
   }
 
@@ -145,4 +175,58 @@ function retrieveProductDetail() {
     color: var(--secondary-color);
   }
 }
+
+// carousel css
+.swiper {
+  width: 100%;
+  height: 100%;
+  
+  &-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &.swiper-slide-thumb-active {
+      opacity: 1;
+    }
+  }
+
+  &-slide {
+    background-size: cover;
+    background-position: center;
+  }
+
+  &.mySwiper2 {
+    height: 80%;
+    width: 100%;
+
+    .swiper-slide {
+      cursor: grab;
+    }
+  }
+
+  &.mySwiper {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    
+    .swiper-slide {
+      width: 25%;
+      height: 100%;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+  }
+}
+
 </style>

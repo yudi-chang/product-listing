@@ -81,7 +81,7 @@ $font-weights: (
 );
 
 @each $name, $value in $font-weights {
-  .fw-#{$name} {
+  .fw-#{"#{$name}"} {
     @include font-weight($value);
   }
 }
