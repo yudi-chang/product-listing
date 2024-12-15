@@ -246,7 +246,7 @@ const handleClickOutside = (event) => {
 
 @media (max-width: $breakpoint-sm) {
   .cart-dropdown {
-    width: 100vw;
+    width: 100%;
     max-height: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1);
     border: solid 1px var(--primary-color);
