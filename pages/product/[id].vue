@@ -43,7 +43,7 @@
           </div>
           <div class="product-bottom-section">
             <p class="price mb-12">{{ productStore.product.price }}$</p>
-            <button class="add-to-cart">
+            <button class="add-to-cart" @click="addToCart">
               Add to Cart
             </button>
           </div>
@@ -56,6 +56,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useProductStore } from '~/stores/product';
+import { useCartStore } from '~/stores/cart';
 import { useRoute } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination } from 'swiper/modules';
@@ -65,6 +66,7 @@ import 'swiper/css/pagination';
 // store
 const route = useRoute();
 const productStore = useProductStore();
+const cartStore = useCartStore();
 
 // reactive data
 const selectedVariation = ref(null);
@@ -77,10 +79,18 @@ onMounted(() => {
   retrieveProductDetail();
 });
 
-// methods
-const retrieveProductDetail = () => {
+async function retrieveProductDetail() {
   const id = route.params.id;
-  productStore.fetchProductDetail(id);
+  await productStore.fetchProductDetail(id);
+  selectedVariation.value = productStore.product.variations[0];
+};
+
+const addToCart = () => {
+  cartStore.addToCart(
+    productStore.product, 
+    selectedVariation.value, 
+    1
+  );
 };
 </script>
 

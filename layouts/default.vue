@@ -24,6 +24,7 @@
     </main>
 
     <footer>
+      <Cart />
       <p>&copy; 2024 My Store</p>
     </footer>
   </div>
