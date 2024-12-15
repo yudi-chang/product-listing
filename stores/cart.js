@@ -58,7 +58,6 @@ export const useCartStore = defineStore('cart', {
       }
     },
   },
-
   getters: {
     totalCartPrice() {
       return this.products.reduce((total, item) => total + item.total, 0);
@@ -68,4 +67,5 @@ export const useCartStore = defineStore('cart', {
       return this.products.reduce((total, item) => total + item.quantity, 0);
     },
   },
+  persist: true
 });

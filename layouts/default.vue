@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="ph-20">
-      <h1 class="pv-8">My Store</h1>
+      <h1 class="pv-8" style="cursor: pointer;"><NuxtLink to="/">My Store</NuxtLink></h1>
       <nav :class="{ 'active' : isActive }">
         <ul>
           <li 
@@ -127,7 +127,6 @@ header {
 
 main {
   min-height: calc(100vh - 100px);
-  padding: 20px;
 }
 
 footer {
@@ -144,10 +143,6 @@ footer {
 
   .product-card {
     width: calc(50% - 10px);
-  }
-  
-  main {
-    padding: 10px;
   }
 }
 

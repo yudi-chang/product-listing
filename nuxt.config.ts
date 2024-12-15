@@ -2,7 +2,10 @@ export default defineNuxtConfig({
   css: [
     "@/assets/styles/main.scss",
   ],
-  modules: ["@pinia/nuxt"],
+  modules: [
+    "@pinia/nuxt",
+    "pinia-plugin-persistedstate/nuxt"
+  ],
   build: {
     transpile: [],
   },
