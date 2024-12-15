@@ -229,7 +229,4 @@ const addToCart = () => {
     }
   }
 }
-
-@media (max-width: $breakpoint-sm) {
-}
 </style>

@@ -22,7 +22,7 @@
               <p>Quantity: {{ item.quantity }}</p>
               <p>Total: ${{ item.total.toFixed(2) }}</p>
             </div>
-            <button @click="removeItem(item.productId, item.variation, $event)">Remove</button>
+            <button class="remove-btn" @click="removeItem(item.productId, item.variation, $event)">Remove</button>
           </li>
         </ul>
         <p v-else>Your cart is empty.</p>
@@ -85,6 +85,8 @@ const handleClickOutside = (event) => {
 </script>
 
 <style lang="scss">
+@use '@/assets/styles/_variables.scss' as *;
+
 .cart-icon-wrapper {
   border-radius: 50%;
   border: solid 2px var(--primary-color);
@@ -95,6 +97,8 @@ const handleClickOutside = (event) => {
   height: 50px;
   padding: 5px;
   cursor: pointer;
+  background-color: var(--secondary-color);
+  z-index: 9;
 
   &.shake {
     animation: shakeCart .4s ease-in-out forwards;
@@ -165,7 +169,7 @@ const handleClickOutside = (event) => {
         }
       }
 
-      button {
+      .remove-btn {
         background: var(--primary-color);
         color: var(--secondary-color);
         border: none;
@@ -225,6 +229,51 @@ const handleClickOutside = (event) => {
   }
   100% {
     transform:translateX(0);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .cart-icon-wrapper {
+    right: 10px;
+    bottom: 20px
+  }
+
+  .cart-dropdown {
+    right: 0;
+    bottom: 80px;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .cart-dropdown {
+    width: 100vw;
+    max-height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1);
+    border: solid 1px var(--primary-color);
+
+    ul {
+
+      .cart-item {
+        display: block;
+
+        .cart-item-image, .cart-item-details {
+          display: inline-block;
+          vertical-align: top;
+        }
+
+        .remove-btn {
+          width: 100%;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 400px) {
+  .cart-dropdown {
+    max-height: calc(100vh - 100px);
+    //display: none;
   }
 }
 </style>
