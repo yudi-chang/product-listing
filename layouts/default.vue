@@ -41,6 +41,8 @@ definePageMeta({
       { hid: 'description', name: 'description', content: 'This is Yudi store, checkout our awesome product' },
       { hid: 'og:title', property: 'og:title', content: 'Yudi Store' },
       { hid: 'og:description', property: 'og:description', content: 'Shop for everyone.' },
+      { hid: 'og:image', content: '/images/cart.png' },
+      { hid: 'og:type', content: 'website' },
     ],
   },
 });
