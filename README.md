@@ -1,4 +1,5 @@
 # Nuxt Minimal Starter
+Live website: https://endearing-taffy-659011.netlify.app/
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
